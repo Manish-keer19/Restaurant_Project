@@ -32,7 +32,8 @@ function OrderHistory() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/orders/");
+        // const response = await axios.get("http://127.0.0.1:8000/api/orders/");
+        const response = await axios.get("https://restaurant-backend-vmx1.onrender.com/api/orders/");
         setOrders(response.data);
       } catch (err) {
         console.error("Error fetching orders:", err);
@@ -57,7 +58,8 @@ function OrderHistory() {
 
   const handleStatusUpdate = async (orderId) => {
     try {
-      await axios.patch(`http://127.0.0.1:8000/api/orders/${orderId}/`, {
+      // await axios.patch(`http://127.0.0.1:8000/api/orders/${orderId}/`, {
+      await axios.patch(`https://restaurant-backend-vmx1.onrender.com/api/orders/${orderId}/`, {
         status: statusUpdate
       });
       
